@@ -1,23 +1,32 @@
 import React from 'react';
+import { useRef, useEffect } from 'react';
 
-function Messages(props) {
-  const { messages, currentMember } = props;
+function Messages({ messages, currentMember }) {
+  const bottomRef = useRef(null);
 
+  //Called useEffect so when messages update, scroll behavior can trigger
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
+
+  //Main function and logic for displaying messages while mapping through messages array
   function renderMessage(message) {
-    const { member, text } = message;
+    const { data, member } = message;
     const messageFromMe = member.id === currentMember.id;
     const className = messageFromMe
       ? 'Messages-message currentMember'
       : 'Messages-message';
     return (
-      <li className={className}>
+      <li className={className} key={Math.random()}>
         <span
           className='avatar'
           style={{ backgroundColor: member.clientData.color }}
         />
         <div className='Message-content'>
           <div className='username'>{member.clientData.username}</div>
-          <div className='text'>{text}</div>
+          <div className='text' ref={bottomRef}>
+            {data}
+          </div>
         </div>
       </li>
     );

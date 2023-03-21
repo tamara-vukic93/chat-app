@@ -3,10 +3,11 @@ import React, { useState } from 'react';
 function Input(props) {
   const [text, setText] = useState('');
 
+  //Setting state from input
   function onChange(e) {
     setText(e.target.value);
   }
-
+  //Submit function for input value
   function onSubmit(e) {
     e.preventDefault();
     setText('');
