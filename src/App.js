@@ -160,7 +160,7 @@ function App() {
   //Used for first time loading to web app
   useEffect(() => {
     //Connecting to Scaledrone api key
-    const drone = new window.Scaledrone('svizjyzu244oPScS', {
+    const drone = new window.Scaledrone('gevJUr4udzfUu9Iu', {
       data: member,
     });
     //Establishing connection as a user
