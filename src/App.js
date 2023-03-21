@@ -177,7 +177,6 @@ function App() {
       setMessages((prevState) => [...prevState, message]);
     });
     setDrone(drone);
-    // eslint-disable-next-line
   }, []);
 
   //Function created for sending message to the selected room
