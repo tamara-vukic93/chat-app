@@ -189,7 +189,7 @@ function App() {
       <div className='App-header'>
         <h1>Welcome to the chat app</h1>
       </div>
-      <Messages message={messages} currentMember={member} />
+      <Messages messages={messages} currentMember={member} />
       <Input onSendMessage={handleInput} />
     </div>
   );
